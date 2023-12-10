@@ -1,0 +1,68 @@
+import userServices from "../services/userServices";
+
+const getUser = async (req, res) => {
+    try {
+        const users = await userServices.getUser()
+        return res.status(200).json(users)
+    } catch (error) {
+        return res.status(500).json({
+            message: error
+        })
+    }
+}
+const addUser = async (req, res) => {
+    try {
+        const { name, age } = req.body
+        await userServices.addUser(name, age)
+        return res.status(201).json({
+            message: "OK"
+        })
+    } catch (error) {
+        return res.status(400).json({
+            message: error
+        })
+    }
+}
+const getUserById = async (req, res) => {
+    try {
+        const currentUser = await userServices.getUserById(req.params.id)
+        return res.status(200).json(currentUser)
+    } catch (error) {
+        return res.status(400).json({
+            message: error
+        })
+    }
+}
+const updateUser = async (req, res) => {
+    try {
+        const { id, name, age } = req.body
+        await userServices.updateUser(id, name, age)
+        return res.status(200).json({
+            message: "OK"
+        })
+    } catch (error) {
+        return res.status(400).json({
+            message: error
+        })
+    }
+}
+const deleteUser = async (req, res) => {
+    try {
+        const id = req.params.id
+        await userServices.deleteUser(id)
+        return res.status(200).json({
+            message: "OK"
+        })
+    } catch (error) {
+        return res.status(400).json({
+            message: error
+        })
+    }
+}
+module.exports = {
+    getUser,
+    addUser,
+    updateUser,
+    getUserById,
+    deleteUser
+}
