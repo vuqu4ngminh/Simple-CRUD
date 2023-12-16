@@ -13,7 +13,7 @@ app.use(_bodyParser["default"].urlencoded({
 app.use(_bodyParser["default"].json());
 _mongoose["default"].connect(process.env.MONGODB_URL).then(function () {
   app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', process.env.REACT_URL);
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     res.setHeader('Access-Control-Allow-Credentials', true);
