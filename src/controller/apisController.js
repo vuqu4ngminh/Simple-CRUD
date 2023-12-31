@@ -12,8 +12,8 @@ const getUser = async (req, res) => {
 }
 const addUser = async (req, res) => {
     try {
-        const { name, age } = req.body
-        await userServices.addUser(name, age)
+        const { name, phone, email, address, password, role } = req.body
+        await userServices.addUser(name, phone, email, address, password, role)
         return res.status(201).json({
             message: "OK"
         })
@@ -35,8 +35,8 @@ const getUserById = async (req, res) => {
 }
 const updateUser = async (req, res) => {
     try {
-        const { id, name, age } = req.body
-        await userServices.updateUser(id, name, age)
+        const { id, name, phone, email, address, password, role } = req.body
+        await userServices.updateUser(id, name, phone, email, address, password, role)
         return res.status(200).json({
             message: "OK"
         })

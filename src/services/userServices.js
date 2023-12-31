@@ -8,11 +8,15 @@ const getUser = async () => {
         console.log(error);
     }
 }
-const addUser = async (_name, _age) => {
+const addUser = async (_name, _phone, _email, _address, _password, _role) => {
     try {
         const user = {
             name: _name,
-            age: _age
+            phone: _phone,
+            email: _email,
+            address: _address,
+            password: _password,
+            role: _role
         }
         await User.create(user)
     } catch (error) {
@@ -27,14 +31,18 @@ const getUserById = async (_id) => {
         console.log(error);
     }
 }
-const updateUser = async (_id, _name, _age) => {
+const updateUser = async (_id, _name, _phone, _email, _address, _password, _role) => {
     try {
         const id = {
             _id: _id
         }
         const newData = {
             name: _name,
-            age: _age
+            phone: _phone,
+            email: _email,
+            address: _address,
+            password: _password,
+            role: _role
         }
         await User.findOneAndUpdate(id, newData)
     } catch (error) {

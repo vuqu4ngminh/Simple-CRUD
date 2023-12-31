@@ -32,7 +32,7 @@ var getUser = /*#__PURE__*/function () {
   };
 }();
 var addUser = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(_name, _age) {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(_name, _phone, _email, _address, _password, _role) {
     var user;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
@@ -40,7 +40,11 @@ var addUser = /*#__PURE__*/function () {
           _context2.prev = 0;
           user = {
             name: _name,
-            age: _age
+            phone: _phone,
+            email: _email,
+            address: _address,
+            password: _password,
+            role: _role
           };
           _context2.next = 4;
           return _model.User.create(user);
@@ -57,7 +61,7 @@ var addUser = /*#__PURE__*/function () {
       }
     }, _callee2, null, [[0, 6]]);
   }));
-  return function addUser(_x, _x2) {
+  return function addUser(_x, _x2, _x3, _x4, _x5, _x6) {
     return _ref2.apply(this, arguments);
   };
 }();
@@ -83,12 +87,12 @@ var getUserById = /*#__PURE__*/function () {
       }
     }, _callee3, null, [[0, 7]]);
   }));
-  return function getUserById(_x3) {
+  return function getUserById(_x7) {
     return _ref3.apply(this, arguments);
   };
 }();
 var updateUser = /*#__PURE__*/function () {
-  var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(_id, _name, _age) {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(_id, _name, _phone, _email, _address, _password, _role) {
     var id, newData;
     return _regeneratorRuntime().wrap(function _callee4$(_context4) {
       while (1) switch (_context4.prev = _context4.next) {
@@ -99,7 +103,11 @@ var updateUser = /*#__PURE__*/function () {
           };
           newData = {
             name: _name,
-            age: _age
+            phone: _phone,
+            email: _email,
+            address: _address,
+            password: _password,
+            role: _role
           };
           _context4.next = 5;
           return _model.User.findOneAndUpdate(id, newData);
@@ -116,7 +124,7 @@ var updateUser = /*#__PURE__*/function () {
       }
     }, _callee4, null, [[0, 7]]);
   }));
-  return function updateUser(_x4, _x5, _x6) {
+  return function updateUser(_x8, _x9, _x10, _x11, _x12, _x13, _x14) {
     return _ref4.apply(this, arguments);
   };
 }();
@@ -145,7 +153,7 @@ var deleteUser = /*#__PURE__*/function () {
       }
     }, _callee5, null, [[0, 6]]);
   }));
-  return function deleteUser(_x7) {
+  return function deleteUser(_x15) {
     return _ref5.apply(this, arguments);
   };
 }();

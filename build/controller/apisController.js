@@ -36,14 +36,14 @@ var getUser = /*#__PURE__*/function () {
 }();
 var addUser = /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(req, res) {
-    var _req$body, name, age;
+    var _req$body, name, phone, email, address, password, role;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
           _context2.prev = 0;
-          _req$body = req.body, name = _req$body.name, age = _req$body.age;
+          _req$body = req.body, name = _req$body.name, phone = _req$body.phone, email = _req$body.email, address = _req$body.address, password = _req$body.password, role = _req$body.role;
           _context2.next = 4;
-          return _userServices["default"].addUser(name, age);
+          return _userServices["default"].addUser(name, phone, email, address, password, role);
         case 4:
           return _context2.abrupt("return", res.status(201).json({
             message: "OK"
@@ -94,14 +94,14 @@ var getUserById = /*#__PURE__*/function () {
 }();
 var updateUser = /*#__PURE__*/function () {
   var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(req, res) {
-    var _req$body2, id, name, age;
+    var _req$body2, id, name, phone, email, address, password, role;
     return _regeneratorRuntime().wrap(function _callee4$(_context4) {
       while (1) switch (_context4.prev = _context4.next) {
         case 0:
           _context4.prev = 0;
-          _req$body2 = req.body, id = _req$body2.id, name = _req$body2.name, age = _req$body2.age;
+          _req$body2 = req.body, id = _req$body2.id, name = _req$body2.name, phone = _req$body2.phone, email = _req$body2.email, address = _req$body2.address, password = _req$body2.password, role = _req$body2.role;
           _context4.next = 4;
-          return _userServices["default"].updateUser(id, name, age);
+          return _userServices["default"].updateUser(id, name, phone, email, address, password, role);
         case 4:
           return _context4.abrupt("return", res.status(200).json({
             message: "OK"
