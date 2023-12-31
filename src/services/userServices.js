@@ -8,6 +8,14 @@ const getUser = async () => {
         console.log(error);
     }
 }
+const getUserByEmailPassword = async (_email, _password) => {
+    try {
+        const users = await User.findOne({_email, _password})
+        return users
+    } catch (error) {
+        console.log(error);
+    }
+}
 const addUser = async (_name, _phone, _email, _address, _password, _role) => {
     try {
         const user = {
@@ -62,6 +70,7 @@ const deleteUser = async (_id) => {
 
 module.exports = {
     getUser,
+    getUserByEmailPassword,
     addUser,
     updateUser,
     getUserById,

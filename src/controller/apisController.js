@@ -1,4 +1,6 @@
+import axios from "axios";
 import userServices from "../services/userServices";
+require('dotenv').config();
 
 const getUser = async (req, res) => {
     try {
@@ -49,10 +51,23 @@ const updateUser = async (req, res) => {
 const deleteUser = async (req, res) => {
     try {
         const id = req.params.id
+        await axios.post(process.env.PRODUCT_API + "delete/" + id)
         await userServices.deleteUser(id)
         return res.status(200).json({
             message: "OK"
         })
+    } catch (error) {
+        return res.status(400).json({
+            message: error
+        })
+    }
+}
+// login
+const getUserByEmailPassword = async (req,res) => {
+    try {
+        const {email, password} = req.body
+        const user = await userServices.getUserByEmailPassword(email,password)
+        return res.status(200).json(user)
     } catch (error) {
         return res.status(400).json({
             message: error
@@ -64,5 +79,6 @@ module.exports = {
     addUser,
     updateUser,
     getUserById,
+    getUserByEmailPassword,
     deleteUser
 }
