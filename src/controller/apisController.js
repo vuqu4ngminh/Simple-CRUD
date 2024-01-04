@@ -35,6 +35,16 @@ const getUserById = async (req, res) => {
         })
     }
 }
+const getUserByEmail = async (req, res) => {
+    try {
+        const currentUser = await userServices.getUserByEmail(req.body.email)
+        return res.status(200).json(currentUser)
+    } catch (error) {
+        return res.status(400).json({
+            message: error
+        })
+    }
+}
 const updateUser = async (req, res) => {
     try {
         const { id, name, phone, email, address, password, role } = req.body
@@ -79,6 +89,7 @@ module.exports = {
     addUser,
     updateUser,
     getUserById,
+    getUserByEmail,
     getUserByEmailPassword,
     deleteUser
 }

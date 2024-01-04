@@ -8,9 +8,17 @@ const getUser = async () => {
         console.log(error);
     }
 }
+const getUserByEmail = async (_email) => {
+    try {
+        const users = await User.find({_email})
+        return users
+    } catch (error) {
+        console.log(error);
+    }
+}
 const getUserByEmailPassword = async (_email, _password) => {
     try {
-        const users = await User.findOne({_email, _password})
+        const users = await User.find({email: _email,password: _password}).exec()
         return users
     } catch (error) {
         console.log(error);
@@ -71,6 +79,7 @@ const deleteUser = async (_id) => {
 module.exports = {
     getUser,
     getUserByEmailPassword,
+    getUserByEmail,
     addUser,
     updateUser,
     getUserById,
