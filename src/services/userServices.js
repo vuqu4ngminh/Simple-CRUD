@@ -10,7 +10,7 @@ const getUser = async () => {
 }
 const getUserByEmail = async (_email) => {
     try {
-        const users = await User.find({_email})
+        const users = await User.find({email: _email})
         return users
     } catch (error) {
         console.log(error);
